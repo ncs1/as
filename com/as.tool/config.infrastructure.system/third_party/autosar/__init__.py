@@ -95,7 +95,7 @@ def createConstantTemplateFromPhysicalType(name, dataTypeTemplate, default=None)
          if(cls.default is None):
              cls.default = cls.dataTypeTemplate.maxValue
          package.createConstant(cls.__name__, cls.dataTypeTemplate.__name__, cls.default)
-   return type(name, (autosar.Template,), dict(dataTypeTemplate=dataTypeTemplate, apply=apply, default=default))
+   return type(name, (autosar.Template,), dict(dataTypeTemplate=dataTypeTemplate, apply=apply, default=default))
 #### DataElement Helpers ####
 def createDataElementTemplate(name, dataTypeTemplate, default=None):   @classmethod
    def apply(cls, ws):
@@ -118,7 +118,7 @@ def createSenderReceiverInterfaceTemplate(name, dataTypeTemplate, dataName=None)
          else:
              ws.apply(cls.dataTypeTemplate)
              package.createSenderReceiverInterface(name, autosar.DataElement(cls.dataName, cls.dataTypeTemplate.__name__))
-   return type(name, (autosar.Template,), dict(dataTypeTemplate=dataTypeTemplate, apply=apply, dataName=dataName))
+   return type(name, (autosar.Template,), dict(dataTypeTemplate=dataTypeTemplate, apply=apply, dataName=dataName))
 #### Signal Helpers ####
 def _createProvidePortHelper(swc, name, portInterfaceTemplate, initValueTemplate=None, elemName=None):
    ws = swc.rootWS()
